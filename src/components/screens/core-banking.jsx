@@ -836,41 +836,7 @@ function CoreConnectionCard({ conn, update, remove, canRemove }) {
             <ValidationChecklist selections={conn.validate.types} setSelections={(v) => setValidate({ types: v })} extras={conn.validate.typeExtras} setExtras={(v) => setValidate({ typeExtras: v })} />
           </CapabilityCard>
 
-          <CapabilityCard icon={Landmark} title="Custom core facility" subtitle="Anything outside the standard set above" state={conn.custom} setState={setCustom}>
-            <div style={{ display: "grid", gridTemplateColumns: "140px 1fr 1fr", gap: "12px" }}>
-              <div>
-                <SectionLabel>Protocol</SectionLabel>
-                <select value={conn.custom.protocol} onChange={(e) => setCustom({ protocol: e.target.value })} style={selectStyle(false)}>
-                  <option>REST</option>
-                  <option>SOAP</option>
-                  <option>File</option>
-                  <option>ISO 8583</option>
-                </select>
-              </div>
-              <div>
-                <SectionLabel>Endpoint / path</SectionLabel>
-                <input value={conn.custom.path} onChange={(e) => setCustom({ path: e.target.value })} placeholder="/core/custom/endpoint" style={inputStyle(true)} />
-              </div>
-              <div>
-                <SectionLabel>Auth</SectionLabel>
-                <select value={conn.custom.auth} onChange={(e) => setCustom({ auth: e.target.value })} style={selectStyle(true)}>
-                  {AUTH_OPTIONS.map((a) => (
-                    <option key={a}>{a}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-            <div>
-              <SectionLabel>Logic instructions</SectionLabel>
-              <textarea
-                value={conn.custom.logic}
-                onChange={(e) => setCustom({ logic: e.target.value })}
-                placeholder="e.g. If country is high-risk, also fetch the enhanced profile from CustomerProfileService and include riskScore."
-                rows={3}
-                style={{ ...inputStyle(false), resize: "vertical" }}
-              />
-            </div>
-          </CapabilityCard>
+          
         </div>
       </div>
     </div>
